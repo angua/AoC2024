@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\Days\Day01\**" />
+    <EmbeddedResource Remove="Resources\Days\Day01\**" />
+    <None Remove="Resources\Days\Day01\**" />
+    <Page Remove="Resources\Days\Day01\**" />
+    <None Remove="Resources\Days\Day01\input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AoC2024Lib\AoC2024Lib.csproj" />
+    <ProjectReference Include="..\CommonWPF\CommonWPF.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Days\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Days\Day01\input.txt" />
+  </ItemGroup>
+</Project>
