@@ -8,10 +8,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Resources\Days\Day01\**" />
+    <Compile Remove="Resources\Days\Day02\**" />
     <EmbeddedResource Remove="Resources\Days\Day01\**" />
+    <EmbeddedResource Remove="Resources\Days\Day02\**" />
     <None Remove="Resources\Days\Day01\**" />
+    <None Remove="Resources\Days\Day02\**" />
     <Page Remove="Resources\Days\Day01\**" />
+    <Page Remove="Resources\Days\Day02\**" />
     <None Remove="Resources\Days\Day01\input.txt" />
+    <None Remove="Resources\Days\Day02\input.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoC2024Lib\AoC2024Lib.csproj" />
@@ -23,5 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Days\Day01\input.txt" />
+    <EmbeddedResource Include="Resources\Days\Day02\input.txt" />
   </ItemGroup>
 </Project>
