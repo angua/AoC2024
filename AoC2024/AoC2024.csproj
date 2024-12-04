@@ -18,6 +18,7 @@
     <None Remove="Resources\Days\Day01\input.txt" />
     <None Remove="Resources\Days\Day02\input.txt" />
     <None Remove="Resources\Days\Day03\input.txt" />
+    <None Remove="Resources\Days\Day04\input.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AoC2024Lib\AoC2024Lib.csproj" />
@@ -31,5 +32,6 @@
     <EmbeddedResource Include="Resources\Days\Day01\input.txt" />
     <EmbeddedResource Include="Resources\Days\Day02\input.txt" />
     <EmbeddedResource Include="Resources\Days\Day03\input.txt" />
+    <EmbeddedResource Include="Resources\Days\Day04\input.txt" />
   </ItemGroup>
 </Project>
