@@ -1,0 +1,22 @@
+<UserControl x:Class="AoC2024.Days.Day06.Day06Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="100" Text="Part1: " />
+                <TextBox Text="{Binding Part1Solution, Mode=OneWay}" />
+            </StackPanel>
+
+            <StackPanel Margin="0, 15, 0, 0" Orientation="Horizontal">
+                <TextBlock Width="100" Text="Part2: " />
+                <TextBox Text="{Binding Part2Solution, Mode=OneWay}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
