@@ -7,16 +7,24 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Width="100" Text="Part1: " />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0">
+                <TextBlock Text="Positions visited by guard:" />
                 <TextBox Text="{Binding Part1Solution, Mode=OneWay}" />
-            </StackPanel>
-
-            <StackPanel Margin="0, 15, 0, 0" Orientation="Horizontal">
-                <TextBlock Width="100" Text="Part2: " />
+                <TextBlock Width="100" Text="Valid blocker positions:" />
                 <TextBox Text="{Binding Part2Solution, Mode=OneWay}" />
-            </StackPanel>
         </StackPanel>
+
+        <ScrollViewer Margin="20,0,0,0" Grid.Column="1" Width="950" Height="950" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+            <Image Source="{Binding MapImage.Source}" />
+
+        </ScrollViewer>
+
+
+
     </Grid>
 </UserControl>
