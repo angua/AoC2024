@@ -16,7 +16,7 @@ public class Day06Work
 
     public int CalculatePart1Solution(Filedata fileData)
     {
-        _grid = Parse(fileData);
+        _grid = Filedata.ParseGrid(fileData);
         
         var start = _grid.First(c => c.Value != '.' && c.Value != '#');
 
@@ -127,19 +127,4 @@ public class Day06Work
         return suitablePositions.Count;
     }
 
-    public Dictionary<Vector2, char> Parse(Filedata fileData)
-    {
-        var grid = new Dictionary<Vector2, char>();
-        for (int y = 0; y < fileData.Lines.Count; y++)
-        {
-            var line = fileData.Lines[y];
-            for (int x = 0; x < line.Length; x++)
-            {
-                var character = line[x];
-                grid.Add(new Vector2(x, y), character);
-            }
-        }
-
-        return grid;
-    }
 }
