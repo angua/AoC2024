@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Advent2024.Utils;
 using AoC2024Lib.Days.Day06Lib;
 using CommonWPF;
+using Common;
 
 namespace AoC2024.Days.Day06;
 
@@ -22,7 +23,6 @@ public class Day06ViewModel : ViewModelBase
         set => SetValue(value);
     }
 
-
     public int Part1Solution
     {
         get => GetValue<int>();
@@ -38,7 +38,7 @@ public class Day06ViewModel : ViewModelBase
     {
         var fileData = ResourceUtils.LoadDataFromResource("Day06", "input.txt");
 
-        var grid = Worker.Parse(fileData);
+        var grid = Filedata.ParseGrid(fileData);
         _gridWidth = (int)grid.Max(v => v.Key.X) + 1;
         _gridHeight = (int)grid.Max(v => v.Key.Y) + 1;
 

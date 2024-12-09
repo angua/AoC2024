@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Numerics;
+﻿using System.Numerics;
 using Common;
 
 namespace AoC2024Lib.Days.Day08Lib;
