@@ -1,29 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Numerics;
-using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-
 
 namespace CommonWPF;
 
 public class BitmapDrawing
 {
-    public WriteableBitmap Picture { get; private set; }
+    private WriteableBitmap _picture;
+
+    public WriteableBitmap Picture
+    {
+        get => _picture;
+        private set
+        {
+            _picture = value;
+            _bytesPerPixel = (_picture.Format.BitsPerPixel + 7) / 8;
+        }
+    }
+
+    private int _bytesPerPixel;
 
     /// <summary>
     /// Create writeable bitmap
@@ -78,10 +76,7 @@ public class BitmapDrawing
             // Release the back buffer and make it available for display.
             Picture.Unlock();
         }
-
     }
-
-
 
     public void DrawLine(Vector2 startPosition, Vector2 endPosition, Color color)
     {
@@ -104,8 +99,6 @@ public class BitmapDrawing
             Picture.Unlock();
         }
     }
-
-
 
 
     /// <summary>
@@ -152,12 +145,6 @@ public class BitmapDrawing
     /// <param name="color">RGB color of the pixel</param>
     private void SetPixel(int x, int y, Color color)
     {
-        var bytesPerPixel = (Picture.Format.BitsPerPixel + 7) / 8;
-        var stride = Picture.PixelWidth * bytesPerPixel;
-
-        int posX = x * bytesPerPixel;
-        int posY = y * stride;
-
         unsafe
         {
             // Get a pointer to the back buffer.
@@ -165,7 +152,7 @@ public class BitmapDrawing
 
             // Find the address of the pixel to draw.
             backBuffer += y * Picture.BackBufferStride;
-            backBuffer += x * 4;
+            backBuffer += x * _bytesPerPixel;
 
             // Compute the pixel's color.
             int color_data = color.R << 16; // R
@@ -175,7 +162,6 @@ public class BitmapDrawing
             // Assign the color data to the pixel.
             *((int*)backBuffer) = color_data;
         }
-
     }
 
     /// <summary>
